@@ -1,0 +1,153 @@
+.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.username form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.username label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.username input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.username button {
+    background-color: #90E0EF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.username button:hover {
+    background-color: #0056b3;
+}
+
+.choice{
+	font-size: 30px;
+	padding-top: 20%;
+	width: 100%;
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+	color: #9C89B8;
+}
+
+.appContainer {
+    display: flex;
+    height: 100vh;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  .namespaceSidebar {
+    width: 72px;
+    background-color: #1B4965;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .IconContainer {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .serverIconContainer:hover {
+    background-color: #5865f2;
+  }
+  
+  .serverIcon {
+    display: block;
+    width: 100%;
+  }
+  
+  .channelsSidebar {
+    width: 240px;
+    background-color: #62B6CB;
+    color: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .serverName {
+    margin-bottom: 20px;
+  }
+  
+  .channelList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .activeRoom {
+	background-color: #16425B;
+  }
+  
+  .channel {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .channel:hover {
+    background-color: #36393f;
+  }
+  
+  .channel-private {
+	background-color: #4b367c; 
+  }
+  
+  .channel-global {
+	background-color: #6772e5; 
+  }
+
+  .chatContainer {
+	background-color: #BEE9E8;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chatHeader {
+    background-color: #36393f;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  
+  
