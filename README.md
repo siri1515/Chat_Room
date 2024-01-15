@@ -1,5 +1,6 @@
 please run following command:
-	cd chatroom_client
+	
+ 	cd chatroom_client
 	npm install
 	npm start
 	cd ..
