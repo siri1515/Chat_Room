@@ -40,7 +40,6 @@ const Chat = (props) => {
         e.preventDefault();
         if (userMessage.trim() && props.userName.trim()) {
 			console.log("current nameapce: ", props.namespaceSocket.current[props.namespace.id]);
-			//props.namespace.id
 			props.namespaceSocket.current[props.namespace.id].emit('newMessageToServer', { 
 				user: props.userName, 
 				text: userMessage,

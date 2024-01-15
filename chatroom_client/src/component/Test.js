@@ -69,12 +69,6 @@ const Test = () => {
 		}
 	}, [currentRoom, currentNamespace]);
 	
-
-	
-
-	
-
-    // problem
     const addListeners = (id, nsSocket) => {
 		console.log("check here:", nsSocket);
         if (!listeners.current.nsChange[id]){
@@ -93,8 +87,19 @@ const Test = () => {
 
     const namespacesClickHandler = (ns) => {
 		setIfChooseNamespace(true);
+		if(currentNamespace && currentRoom)
+		{
+			const nsSocket = namespaceSockets.current[currentNamespace.id];
+			nsSocket.emitWithAck('leaveRoom', 
+			{ 
+				roomTitle: currentRoom, 
+				namespaceId: currentNamespace.id, 
+				userName: userName,
+			});
+		}
         setCurrentNamespace(ns);
         setRooms(ns.rooms);
+		setCurrentRoom('');
 		setIfChooseRoom(false);
     };
 
@@ -125,7 +130,6 @@ const Test = () => {
 			console.log(data.info);
 		})
 		setUserNumbers(ackResponse.numberOfUsers);  
-		//console.log(ackResponse);
 		setMessages(ackResponse.thisRoomsHistory);
     };
 

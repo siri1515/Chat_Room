@@ -3,7 +3,6 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const socketio = require('socket.io');
-const Room = require('./classes/Room')
 
 const app = express();
 
@@ -23,13 +22,6 @@ const io = socketio(server, {
 
 //namespaces
 const namespaces = require('./data/namespaces');
-
-/*
-app.get('/change-ns', (req, res) => {
-    namespaces[0].addRoom(new Room(4, 'Deleted Articles', 0));
-    io.of(namespaces[0].endpoint).emit('name_space_change', namespaces[0]);
-    res.json(namespaces[0]);
-})*/
 
 //mainsocket connection
 io.on('connection', (socket) => {
@@ -69,26 +61,10 @@ server.listen(PORT, () => {
 				// Add the socket to the specified room.
 				const thisNS = namespaces[roomObj.namespaceId];
 				const thisRoomObj = thisNS.rooms.find(room=>room.roomTitle === roomObj.roomTitle);
-				/*
-				const thisRoomsHistory = '';
-				if(roomObj.privateRoom === false){
-					thisRoomsHistory = thisRoomObj.history;
-				}
-				*/
 				thisRoomsHistory = thisRoomObj.history;
 
 
 				socket.join(roomObj.roomTitle);
-
-				/*
-				if(roomObj.userNumbers >= 2 && roomObj.privateRoom === true){
-					socket.emit("fullInfo", {
-						info: `Sorry, you can't join the room. This room have already included 2 users`
-					})
-				}
-				else{
-					socket.join(roomObj.roomTitle);
-				}*/
 				
 				console.log("after join", socket.rooms);
 				// Fetch all sockets in the room within the namespace.
@@ -112,17 +88,6 @@ server.listen(PORT, () => {
 					message: `User "${roomObj.userName}" has left the room`,
 					socketCount: socketCount
 				});
-
-				/*
-				const rooms = socket.rooms;
-				let i = 0;
-				rooms.forEach((room)=>{
-					if(i!=0){
-						socket.leave(room);
-						console.log("room", room);
-					}
-					i++;
-				})*/
 			})
 			
 
@@ -132,8 +97,6 @@ server.listen(PORT, () => {
 				const rooms = socket.rooms;
 				console.log(rooms);
 				const currentRoom = [...rooms][1];
-				//emit new message to all clients
-				//io.emit('newMessageToClients', msg);
 				console.log("namespace:", namespace.endpoint, "currentroom:", currentRoom);
 				io.of(namespace.endpoint).in(currentRoom).emit('newMessageToClients', msg);
 				const thisNS = namespaces[msg.id];
